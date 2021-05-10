@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CompanyJr;
+use App\Models\Federation;
 use Redirect;
 
 class CompanyJrController extends Controller
@@ -15,7 +16,8 @@ class CompanyJrController extends Controller
      */
     public function index()
     {
-        return view('companyJr');
+        $federacoes = Federation::all();
+        return view('companyJr', ['federacoes' => $federacoes]);
     }
 
     /**
@@ -37,8 +39,8 @@ class CompanyJrController extends Controller
     public function store(Request $request)
     {
         $company = new CompanyJr;
-        //$company = $company->create($request->all());
         $company->nome = $request->nome;
+        $company->federation_id = $request->federation_id;
         $company->save();
         return Redirect::to('/');
     }

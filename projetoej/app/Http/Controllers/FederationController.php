@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\State;
 
 class FederationController extends Controller
 {
@@ -34,7 +35,14 @@ class FederationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$state = State::select('nome', $request->state_id)->get();
+        $state = State::select("select * from states where nome = $request->state_id")->first();
+
+        $federation = new Federation;
+        $federation->nome = $request->nome;
+        $federation->state_id = $state->id;
+        $federation->save();
+        return Redirect::to('/');
     }
 
     /**

@@ -12,8 +12,16 @@
         @csrf
             <label for="">Nome</label>
             <input type="text" name="nome" placeholder="Escreva seu Nome"/>
+
             <label for="">Federação</label>
-            <input type="text" name="federation_id" placeholder="Escreva sua Federação"/>
+            <select name="federation_id" id="federation_id">
+                <option value="" disabled selected>Selecione uma federação</option>
+                @foreach($federacoes as $federacao)
+                    <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
+                @endforeach
+            </select>
+            <br>
+            <br>
             <button type="submit">Cadastrar</button>
         </form>
     </div>
