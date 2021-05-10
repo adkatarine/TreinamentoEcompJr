@@ -9,26 +9,21 @@ use Redirect;
 
 class CompanyJrController extends Controller
 {
-
-
-
-    public function buscarFederacao(Request $request){
+    
+    public function buscarPorFederacao(Request $request){
         
-        $empresas = CompanyJr::get();
+        $empresas = null;
         $selecionado = $request->selecionado;
         if($selecionado != -1){
             $empresas = CompanyJr::where('federation_id', $selecionado)->get();
         }
-
         return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado]);
     }
 
-    public function buscarCompany(Request $request){
+    public function buscarEmpresa(Request $request){
 
         $empresa = null;
-        if(CompanyJr::where('nome', $request->empresa)->first() != null){
-            $empresa = CompanyJr::where('nome', $request->empresa)->first();
-        }
+        $empresa = CompanyJr::where('nome', $request->empresa)->first();
         return view('searchCompanyJr', ['empresa' => $empresa]);
     }
 
