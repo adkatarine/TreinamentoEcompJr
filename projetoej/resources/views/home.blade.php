@@ -9,7 +9,18 @@
     <div class="container">
         <a href="{{ url('/company') }}" ><button >Cadastrar Empresa</button></a>
         <a href="{{ url('/federation') }}" ><button >Cadastrar Federacao</button></a>
-        <a href="{{ url('/company/list') }}" ><button >Listar Empresas</button></a>
+        <a href="{{ url('/company/list')}}/-1" ><button type="submit" >Listar todas as empresas</button></a>
+        
+        <form action="{{ route('/company/list') }}" method="get">
+            <select name="selecionado">
+                <option value="0" disabled selected>Selecione uma federação</option>
+                @foreach($federacoes as $federacao)
+                    <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
+                @endforeach
+            </select>
+            <button type="submit" >Listar empresas por federação</button>
+        </form>
+
     </div>
 </body>
 </html>

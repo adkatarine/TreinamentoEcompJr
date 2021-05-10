@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyJrController;
 use App\Http\Controllers\FederationController;
+use App\Models\Federation;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use App\Http\Controllers\FederationController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $federacoes = Federation::all();
+    return view('home', ['federacoes' => $federacoes]);
 });
 
 Route::get('/company', [CompanyJrController::class, 'index']);
@@ -25,4 +27,6 @@ Route::get('/federation', [FederationController::class, 'index']);
 Route::post('/company/save', [CompanyJrController::class, 'store']);
 Route::post('/federation/save', [FederationController::class, 'store']);
 
-Route::get('company/list', [CompanyJrController::class, 'show']);
+Route::get('company/list/{id}', [CompanyJrController::class, 'show']);
+
+Route::get('/company/list', [CompanyJrController::class, 'buscarFederacao'])->name('/company/list');

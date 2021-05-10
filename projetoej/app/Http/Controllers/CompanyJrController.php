@@ -9,6 +9,20 @@ use Redirect;
 
 class CompanyJrController extends Controller
 {
+
+
+
+    public function buscarFederacao(Request $request){
+        
+        $empresas = CompanyJr::get();
+        $selecionado = $request->selecionado;
+        if($selecionado != -1){
+            $empresas = CompanyJr::where('federation_id', $selecionado)->get();
+        }
+
+        return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado]);
+    }
+
     /**
      * Display a listing of the resource.
      *
