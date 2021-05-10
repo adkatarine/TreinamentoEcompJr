@@ -28,5 +28,5 @@ Route::post('/company/save', [CompanyJrController::class, 'store']);
 Route::post('/federation/save', [FederationController::class, 'store']);
 
 Route::get('company/list/{id}', [CompanyJrController::class, 'show']);
-
 Route::get('/company/list', [CompanyJrController::class, 'buscarFederacao'])->name('/company/list');
+Route::get('/company/search', [CompanyJrController::class, 'buscarCompany'])->name('/company/search');

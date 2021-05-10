@@ -13,6 +13,7 @@
             @foreach($empresas as $empresa)
                 <p>Nome: <tr>{{$empresa->nome}}</tr></p>
                 <p>Federação: <tr>{{$empresa->federation->nome}}</tr></p>
+                <p>Estado: <tr>{{$empresa->federation->state->nome}}</tr></p>
                 <hr/>
             @endforeach
         </td>

@@ -23,6 +23,15 @@ class CompanyJrController extends Controller
         return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado]);
     }
 
+    public function buscarCompany(Request $request){
+
+        $empresa = null;
+        if(CompanyJr::where('nome', $request->empresa)->first() != null){
+            $empresa = CompanyJr::where('nome', $request->empresa)->first();
+        }
+        return view('searchCompanyJr', ['empresa' => $empresa]);
+    }
+
     /**
      * Display a listing of the resource.
      *

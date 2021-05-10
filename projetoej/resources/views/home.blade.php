@@ -10,7 +10,8 @@
         <a href="{{ url('/company') }}" ><button >Cadastrar Empresa</button></a>
         <a href="{{ url('/federation') }}" ><button >Cadastrar Federacao</button></a>
         <a href="{{ url('/company/list')}}/-1" ><button type="submit" >Listar todas as empresas</button></a>
-        
+        <br>
+        <br>
         <form action="{{ route('/company/list') }}" method="get">
             <select name="selecionado">
                 <option value="0" disabled selected>Selecione uma federação</option>
@@ -19,6 +20,11 @@
                 @endforeach
             </select>
             <button type="submit" >Listar empresas por federação</button>
+        </form>
+        <br>
+        <form action="{{ route('/company/search') }}" method="get">
+            <input type="text" name="empresa" id="empresa" placeholder="Escreva o nome da Empresa">
+            <button type="submit" >Buscar EmpresaJr</button>
         </form>
 
     </div>
