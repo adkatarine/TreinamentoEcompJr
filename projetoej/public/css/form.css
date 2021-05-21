@@ -1,0 +1,21 @@
+#div-form {
+    margin-top: 80px;
+    margin-left: 500px;
+}
+
+.p-form {
+    font-family: BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    line-height: 1.428;
+    color: #4682B4;
+    margin: -3px;
+}
+
+#color-button {
+    margin-left: 80px;
+    background-color: #4682B4;
+    border-color: #4682B4;
+}

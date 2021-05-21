@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/static.css')}}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div id="page-div">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top"">
         <a class="navbar-brand" href="/"> EcompJr
         </a>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -43,7 +47,7 @@
                 <input class="form-control mr-sm-2" type="text" name="empresa" id="empresa" placeholder="Digite o nome da empr..." aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar EmpresaJr</button>
             </form>
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" id="login-logout">
                 @guest
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
@@ -58,20 +62,18 @@
         </div>
     </nav>
     
-    <main role="main" class="container">
-
-        <div class="starter-template">
-            @guest
-                <p>Painel do Usuário</p>
-                @endguest
-                @auth
-                    <p>Painel do Administrador</p>
-                @endauth
+    <div class="painel"">
+        @guest
+            <p>Painel do Usuário</p>
+        @endguest
+        @auth
+            <p>Painel do Administrador</p>
+        @endauth
+    </div>
+        <div id="div-conteudo">
             @yield('content')
         </div>
-
-    </main><!-- /.container -->
-
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

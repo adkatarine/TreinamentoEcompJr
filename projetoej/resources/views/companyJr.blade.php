@@ -1,18 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <p>
-        <h2>CADASTRAR EMPRESA JR</h2>
-    </p>
+<div class="container" id="div-form">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <p class="p-form">Cadastrar Empresa Jr</p>
+    <hr>
     <form action="/company/save" method="post">
         @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1">Empresa</label>
             <input type="text" class="form-control" name="empresa" aria-describedby="emailHelp" placeholder="Digite o nome da empresa">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
             <select class="form-control" name="federation_id" id="federation_id">
                 <option value="" disabled selected>Selecione uma federação</option>
                 @foreach($federacoes as $federacao)
@@ -20,7 +19,9 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary" id="color-button">Cadastrar</button>
     </form>
+    </div>
+</div>
 </div>
 @endsection

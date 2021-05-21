@@ -1,10 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <p>
-        <h2>Login</h2>
-    </p>
+<div class="container" id="div-form">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <p class="p-form">Login</p>
+    <hr>
     <form action="/login/save" method="post">
         @csrf
 
@@ -16,14 +17,14 @@
             @endforeach
         @endif
         <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
             <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Senha</label>
             <input type="text" class="form-control" name="password" placeholder="Digite sua senha">
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary" id="color-button">Entrar</button>
     </form>
+    </div>
+</div>
 </div>
 @endsection

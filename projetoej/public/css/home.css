@@ -1,0 +1,23 @@
+#login-logout {
+    right: 0%;
+}
+
+body {
+    background-color: #B0C4DE;
+    background-size: 100%;
+    background-repeat: repeat;
+}
+
+.painel {
+    font-family: BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 24px;
+    font-weight: bold;
+    color: #ADD8E6;
+    margin-top: 80px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.428;
+    background-color: #4682B4;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
