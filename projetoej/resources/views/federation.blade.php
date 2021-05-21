@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
+@extends('layouts.admin')
+
+@section('content')
+<div class="container">
+    <p>
         <h2>CADASTRAR FEDERAÇÃO</h2>
-        <form action="/federation/save" method="post">
+    </p>
+    <form action="/federation/save" method="post">
         @csrf
-            <input type="text" name="nome" placeholder="Escreva seu Nome">Nome</input>
-            <input type="text" name="state_id" placeholder="Escreva seu Estado"> Estado</input>
-            <br>
-            <br>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-</body>
-</html>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Federação</label>
+            <input type="text" class="form-control" name="nome" aria-describedby="emailHelp" placeholder="Digite o nome da federação">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Estado</label>
+            <input type="text" class="form-control" name="state_id" placeholder="Digite o estado da federação">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+@endsection

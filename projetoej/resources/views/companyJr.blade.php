@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <h2>CADASTRAR EMPRESA JR</h2>
-        <form action="/company/save" method="post">
-        @csrf
-            <label for="">Nome</label>
-            <input type="text" name="nome" placeholder="Escreva seu Nome"/>
+@extends('layouts.admin')
 
-            <label for="">Federação</label>
-            <select name="federation_id" id="federation_id">
+@section('content')
+<div class="container">
+    <p>
+        <h2>CADASTRAR EMPRESA JR</h2>
+    </p>
+    <form action="/company/save" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="exampleInputEmail1">Empresa</label>
+            <input type="text" class="form-control" name="empresa" aria-describedby="emailHelp" placeholder="Digite o nome da empresa">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" name="federation_id" id="federation_id">
                 <option value="" disabled selected>Selecione uma federação</option>
                 @foreach($federacoes as $federacao)
-                    <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
+                <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
                 @endforeach
             </select>
-            <br>
-            <br>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-</body>
-</html>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+@endsection
