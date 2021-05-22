@@ -38,23 +38,33 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Empresas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="{{ url('/company/list') }}">Listar Todas</a>
+                        <a class="dropdown-item" href="{{ url('/company/list') }}/-1">Listar Todas</a>
                         <a class="dropdown-item" href="{{ url('/company/search') }}">Listar por Federação</a>
+                        <li class="nav-item dropdown-submenu">
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="{{ url('/company/list') }}/-1">Listar Todas</a>
+                        <a class="dropdown-item" href="{{ url('/company/search') }}">Listar por Federação</a>
+</div>
+                        </li>
                     </div>
                 </li>
+                
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{{ route('/company/search') }}" method="get">
                 <input class="form-control mr-sm-2" type="text" name="empresa" id="empresa" placeholder="Digite o nome da empr..." aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar EmpresaJr</button>
+                <button type="button" class="btn btn-info"  type="submit">Buscar EmpresaJr</button>
             </form>
             <ul class="navbar-nav mr-auto" id="login-logout">
                 @guest
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Cadastro</a>
+                </li>
                 @endguest
                 @auth
-                <li class="nav-item">
+                <li class="nav-item" id="li-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
                 @endauth
@@ -64,7 +74,7 @@
     
     <div class="painel"">
         @guest
-            <p>Painel do Usuário</p>
+            <p>Painel do Visitante</p>
         @endguest
         @auth
             <p>Painel do Administrador</p>

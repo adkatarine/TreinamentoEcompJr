@@ -20,7 +20,7 @@
             <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="password" placeholder="Digite sua senha">
+            <input type="password" class="form-control" name="password" placeholder="Digite sua senha">
         </div>
         <button type="submit" class="btn btn-primary" id="color-button">Entrar</button>
     </form>

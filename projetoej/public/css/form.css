@@ -19,3 +19,15 @@
     background-color: #4682B4;
     border-color: #4682B4;
 }
+
+.title-div {
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 300px;
+    margin-right: 300px;
+    text-align: center;
+}
+.card-list {
+    margin-left: 170px;
+}

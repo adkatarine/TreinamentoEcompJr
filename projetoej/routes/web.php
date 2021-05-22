@@ -22,11 +22,9 @@ Route::get('/', function () {
     $federacoes = Federation::all();
     return view('home', ['federacoes' => $federacoes]);
 })->name('/');
-
 Route::get('/servicos', function () {
     return view('servicos');
 });
-
 Route::get('/diretrizes', function () {
     return view('diretrizes');
 });
