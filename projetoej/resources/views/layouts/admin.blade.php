@@ -14,7 +14,7 @@
 <body>
 <div id="page-div">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top"">
-        <a class="navbar-brand" href="/"> EcompJr
+        <a class="navbar-brand" href="/home"> EcompJr
         </a>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -22,7 +22,24 @@
                     <a class="nav-link" href="/diretrizes">Diretrizes Estratégicas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/servicos">Serviços</a>
+                    <a class="nav-link" href="{{ route('/servicos') }}">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('/company/list') }}/-1">Listar Empresas</a>
+                </li>
+                <li class="nav-item">
+                    <form action="{{ route('/company/list') }}" method="get" class="input-group">
+                    @csrf
+                        <select class="custom-select" name="selecionado"  aria-label="Example select with button addon">
+                            <option value="0" disabled selected>Empresas por Federação</option>
+                            @foreach($federacoes as $federacao)
+                                <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
+                            @endforeach
+                        </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="submit">Buscar</button>
+                        </div>
+                    </form>
                 </li>
                 @auth
                 <li class="nav-item dropdown">
@@ -35,24 +52,11 @@
                     </div>
                 </li>
                 @endauth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Empresas</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="{{ url('/company/list') }}/-1">Listar Todas</a>
-                        <a class="dropdown-item" href="{{ url('/company/search') }}">Listar por Federação</a>
-                        <li class="nav-item dropdown-submenu">
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="{{ url('/company/list') }}/-1">Listar Todas</a>
-                        <a class="dropdown-item" href="{{ url('/company/search') }}">Listar por Federação</a>
-</div>
-                        </li>
-                    </div>
-                </li>
                 
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{{ route('/company/search') }}" method="get">
                 <input class="form-control mr-sm-2" type="text" name="empresa" id="empresa" placeholder="Digite o nome da empr..." aria-label="Search">
-                <button type="button" class="btn btn-info"  type="submit">Buscar EmpresaJr</button>
+                <button type="button" class="btn btn-info"  type="submit">Buscar Empresa</button>
             </form>
             <ul class="navbar-nav mr-auto" id="login-logout">
                 @guest
@@ -72,7 +76,7 @@
         </div>
     </nav>
     
-    <div class="painel"">
+    <div class="painel">
         @guest
             <p>Painel do Visitante</p>
         @endguest

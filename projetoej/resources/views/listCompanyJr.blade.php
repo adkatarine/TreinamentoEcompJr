@@ -13,17 +13,17 @@
                 <table class="table table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Federação</th>
-                    <th scope="col">Estado</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Federação</th>
+                        <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($empresas as $empresa)
                         <tr>
-                        <td>{{$empresa->nome}}</td>
-                        <td>{{$empresa->federation->nome}}</td>
-                        <td>{{$empresa->federation->state->nome}}</td>
+                            <td>{{$empresa->nome}}</td>
+                            <td>{{$empresa->federation->nome}}</td>
+                            <td>{{$empresa->federation->state->nome}}</td>
                         </tr>
                     @endforeach
                 </tbody>

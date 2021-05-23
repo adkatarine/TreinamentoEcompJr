@@ -9,7 +9,7 @@
     <form action="/company/save" method="post">
         @csrf
         <div class="form-group">
-            <input type="text" class="form-control" name="empresa" aria-describedby="emailHelp" placeholder="Digite o nome da empresa">
+            <input type="text" class="form-control" name="nome" aria-describedby="emailHelp" placeholder="Digite o nome da empresa">
         </div>
         <div class="form-group">
             <select class="form-control" name="federation_id" id="federation_id">

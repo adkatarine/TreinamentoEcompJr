@@ -50,7 +50,7 @@ class FederationController extends Controller
         $federation->nome = $request->nome;
         $federation->state_id = $stateGet->id;
         $federation->save();
-        return Redirect::to('/');
+        return Redirect::to('/home');
     }
 
     /**
