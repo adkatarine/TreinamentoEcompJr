@@ -19,20 +19,21 @@ use App\Models\Federation;
 */
 
 Route::get('/home', function () {
-    $federacoes = Federation::all();
-    return view('home', ['federacoes' => $federacoes]);
+    return view('home');
 })->name('/home');
 
 Route::get('/servicos', function () {
-    $federacoes = Federation::all();
-    return view('servicos', ['federacoes' => $federacoes]);
+    return view('servicos');
 })->name('/servicos');
 
 Route::get('/diretrizes', function () {
-    $federacoes = Federation::all();
-    return view('diretrizes', ['federacoes' => $federacoes]);
+    return view('diretrizes');
 })->name('/diretrizes');
 
+Route::get('/company/choose', function () {
+    $federacoes = Federation::all();
+    return view('chooseList', ['federacoes' => $federacoes]);
+})->name('/company/choose');
 
 Route::get('/company', [CompanyJrController::class, 'index']);
 Route::get('/federation', [FederationController::class, 'index']);

@@ -13,22 +13,18 @@ class CompanyJrController extends Controller
     public function buscarPorFederacao(Request $request){
         
         $empresas = null;
-        $selecionado = $request->selecionado;
-        $federacoes = Federation::all();        
+        $selecionado = $request->selecionado;     
         if($selecionado != -1){
-            //dd($selecionado);
             $empresas = CompanyJr::where('federation_id', $selecionado)->get();
         }
-        return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado, 'federacoes' => $federacoes]);
-        //return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado]);
+        return view('listCompanyJr', ['empresas' => $empresas, 'selecionado' => $selecionado]);
     }
 
     public function buscarEmpresa(Request $request){
 
         $empresa = null;
-        $federacoes = Federation::all();
-        $empresa = CompanyJr::where('nome', $request->empresa)->first();
-        return view('searchCompanyJr', ['empresa' => $empresa, 'federacoes' => $federacoes]);
+        $empresas = CompanyJr::where('nome', $request->empresa)->get();
+        return view('listCompanyJr', ['empresas' => $empresas]);
     }
 
     /**
@@ -76,8 +72,7 @@ class CompanyJrController extends Controller
     public function show()
     {
         $empresas = CompanyJr::all();
-        $federacoes = Federation::all();
-        return view('listCompanyJr',['empresas' => $empresas,'federacoes' => $federacoes]); 
+        return view('listCompanyJr',['empresas' => $empresas]); 
     }
 
     /**

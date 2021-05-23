@@ -14,7 +14,7 @@
 <body>
 <div id="page-div">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top"">
-        <a class="navbar-brand" href="/home"> EcompJr
+        <a class="navbar-brand" href="/home"> <img style="max-width:110px;" src='{{asset("assets/logo-ej.png")}}' alt="Logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -25,21 +25,7 @@
                     <a class="nav-link" href="{{ route('/servicos') }}">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('/company/list') }}/-1">Listar Empresas</a>
-                </li>
-                <li class="nav-item">
-                    <form action="{{ route('/company/list') }}" method="get" class="input-group">
-                    @csrf
-                        <select class="custom-select" name="selecionado"  aria-label="Example select with button addon">
-                            <option value="0" disabled selected>Empresas por Federação</option>
-                            @foreach($federacoes as $federacao)
-                                <option value="{{$federacao->id}}">{{$federacao->nome}}</option>
-                            @endforeach
-                        </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-info" type="submit">Buscar</button>
-                        </div>
-                    </form>
+                    <a class="nav-link" href="{{ route('/company/choose') }}">Listar Empresas</a>
                 </li>
                 @auth
                 <li class="nav-item dropdown">
@@ -56,7 +42,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{{ route('/company/search') }}" method="get">
                 <input class="form-control mr-sm-2" type="text" name="empresa" id="empresa" placeholder="Digite o nome da empr..." aria-label="Search">
-                <button type="button" class="btn btn-info"  type="submit">Buscar Empresa</button>
+                <button class="btn btn-info"  type="submit">Buscar Empresa</button>
             </form>
             <ul class="navbar-nav mr-auto" id="login-logout">
                 @guest

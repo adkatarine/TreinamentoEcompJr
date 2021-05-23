@@ -1,30 +1,25 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container" >
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
+<div class="container" id="div-form">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <p class="p-form">{{ __('Cadastro') }}</p>
+    <hr>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <input id="name" type="text" placeholder="Digite seu nome" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <div class="form-group">
+                            <input id="name" type="text" placeholder="Digite seu nome" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
+                        <div class="form-group">
                                 <input id="email" type="email" placeholder="Digite seu email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -32,11 +27,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
+                        <div class="form-group">
                                 <input id="password" type="password" placeholder="Digite sua senha" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -44,26 +37,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
+                        <div class="form-group">
                                 <input id="password-confirm" type="password" placeholder="Confirme sua senha" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
-                                </button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-primary" id="color-button">{{ __('Cadastrar') }}</button>
                     </form>
-                </div>
             </div>
         </div>
-    </div>
 </div>
 @endsection

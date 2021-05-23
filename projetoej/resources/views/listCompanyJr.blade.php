@@ -11,6 +11,7 @@
         <div class="card card-list" style="width: 45rem;">
             <div class="card-body">
                 <table class="table table-hover">
+                @if(sizeof($empresas) != 0)
                 <thead>
                     <tr>
                         <th scope="col">Empresa</th>
@@ -27,6 +28,11 @@
                         </tr>
                     @endforeach
                 </tbody>
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        <p>Não há registro de empresas!</p>
+                    </div>
+                @endif
                 </table>
             </div>
         </div>
